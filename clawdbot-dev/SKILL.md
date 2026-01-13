@@ -11,19 +11,29 @@ description: |
 
 Clawdbot is a multi-platform AI assistant with providers for Discord, Telegram, WhatsApp, Slack, Signal, iMessage, and MS Teams.
 
+**Repository:** https://github.com/nickclaw/clawdbot
+
+## Getting Started
+
+```bash
+git clone https://github.com/nickclaw/clawdbot.git
+cd clawdbot
+pnpm install
+```
+
 ## Ecosystem Overview
 
 | Directory | Purpose |
 |-----------|---------|
-| `/home/thepickle/clawdbot/` | Source code repo |
-| `/home/thepickle/clawdbot/docs/` | Documentation (194 Mintlify markdown files) |
+| `<clawdbot-repo>/` | Source code repo |
+| `<clawdbot-repo>/docs/` | Documentation (Mintlify markdown files) |
 | `~/.clawdbot/` | Runtime config (clawdbot.json, credentials, agents, cron) |
 | `~/clawd/` | Default agent workspace (identity, memory, workspace files) |
 
 ## Source Code Structure
 
 ```
-/home/thepickle/clawdbot/src/
+src/
 ├── agents/              # Agent framework
 │   ├── tools/           # Agent tool definitions (TypeBox schemas)
 │   ├── subagent-*.ts    # Sub-agent lifecycle & announcements
@@ -121,7 +131,7 @@ Clawdbot is a multi-platform AI assistant with providers for Discord, Telegram, 
 The workspace is the agent's persistent memory and identity. Path is configurable per-agent.
 
 ```
-~/clawd/
+<workspace>/
 ├── AGENTS.md            # Workspace instructions (read on session start)
 ├── IDENTITY.md          # Agent identity: name, creature type, vibe, emoji
 ├── SOUL.md              # Persona & behavioral boundaries
@@ -162,7 +172,7 @@ The workspace is the agent's persistent memory and identity. Path is configurabl
 
 ### Adding a New Provider
 
-1. Create plugin: `/src/providers/plugins/{provider}.ts`
+1. Create plugin: `src/providers/plugins/{provider}.ts`
 ```typescript
 import type { ProviderPlugin } from "./types.js";
 
@@ -174,26 +184,26 @@ export const myProviderPlugin: ProviderPlugin<MyAccount> = {
 };
 ```
 
-2. Create provider directory: `/src/{provider}/`
+2. Create provider directory: `src/{provider}/`
    - `bot.ts` - Provider-specific bot logic
    - `send.ts` - Message sending
    - `monitor.ts` - Message receiving
    - `accounts.ts` - Account management
 
-3. Register in `/src/providers/plugins/index.ts`:
+3. Register in `src/providers/plugins/index.ts`:
 ```typescript
 import { myProviderPlugin } from "./myprovider.js";
 // Add to resolveProviders() return array
 ```
 
-4. Add to `/src/providers/registry.ts`:
+4. Add to `src/providers/registry.ts`:
 ```typescript
 export const CHAT_PROVIDER_ORDER = [..., "myprovider"];
 ```
 
 ### Adding a New Agent Tool
 
-1. Create tool: `/src/agents/tools/{tool-name}.ts`
+1. Create tool: `src/agents/tools/{tool-name}.ts`
 ```typescript
 import { Type } from "@sinclair/typebox";
 import type { AnyAgentTool } from "./common.js";
@@ -222,7 +232,7 @@ export function createMyTool(): AnyAgentTool {
 
 ### Adding a CLI Command
 
-1. Create command: `/src/commands/{command}.ts`
+1. Create command: `src/commands/{command}.ts`
 ```typescript
 import { Command } from "commander";
 
@@ -236,7 +246,7 @@ export function myCommand(): Command {
 }
 ```
 
-2. Register in `/src/cli/program.ts`
+2. Register in `src/cli/program.ts`
 
 ### Sub-agent System
 
@@ -282,28 +292,39 @@ Sub-agents are isolated agent runs spawned for specific tasks.
 
 ## Documentation
 
-Docs source: `/home/thepickle/clawdbot/docs/` (Mintlify)
+Documentation is in the `docs/` directory (Mintlify). Also available at https://docs.clawd.bot
 
 | Path | Content |
 |------|---------|
-| `/docs/start/` | Getting started |
-| `/docs/concepts/` | Architecture, agents, sessions |
-| `/docs/providers/` | Provider setup guides |
-| `/docs/tools/` | Agent tools |
-| `/docs/gateway/` | Gateway config |
+| `docs/start/` | Getting started |
+| `docs/concepts/` | Architecture, agents, sessions |
+| `docs/providers/` | Provider setup guides |
+| `docs/tools/` | Agent tools |
+| `docs/gateway/` | Gateway config |
 
 ## Quick Search
 
 ```bash
-# Find in source
-grep -r "pattern" /home/thepickle/clawdbot/src/
+# Find in source (run from repo root)
+grep -r "pattern" src/
 
 # Find in docs
-grep -r "pattern" /home/thepickle/clawdbot/docs/
+grep -r "pattern" docs/
 
 # List all tools
-ls /home/thepickle/clawdbot/src/agents/tools/
+ls src/agents/tools/
 
 # List all providers
-ls /home/thepickle/clawdbot/src/providers/plugins/
+ls src/providers/plugins/
+```
+
+## Common Commands
+
+```bash
+pnpm install          # Install dependencies
+pnpm build            # Build TypeScript
+pnpm test             # Run tests
+pnpm docs:dev         # Run local docs server
+clawdbot gateway      # Start the gateway
+clawdbot doctor       # Health check
 ```
