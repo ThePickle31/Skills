@@ -12,7 +12,7 @@
     {
       "name": "clawdbot-dev",
       "source": "./clawdbot-dev",
-      "description": "Claude Code skill for Clawdbot development - multi-platform AI assistant",
+      "description": "Skill for Clawdbot development",
       "version": "1.0.0",
       "author": { "name": "ThePickle31" },
       "license": "MIT",
