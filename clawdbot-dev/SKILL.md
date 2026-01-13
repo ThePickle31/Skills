@@ -11,12 +11,12 @@ description: |
 
 Clawdbot is a multi-platform AI assistant with providers for Discord, Telegram, WhatsApp, Slack, Signal, iMessage, and MS Teams.
 
-**Repository:** https://github.com/nickclaw/clawdbot
+**Repository:** https://github.com/clawdbot/clawdbot
 
 ## Getting Started
 
 ```bash
-git clone https://github.com/nickclaw/clawdbot.git
+git clone https://github.com/clawdbot/clawdbot.git
 cd clawdbot
 pnpm install
 ```
