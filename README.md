@@ -1,17 +1,17 @@
-# Skills
+# Pickle-Skills
 
 A collection of custom Agent Skills for Claude Code and other AI coding assistants.
 
 ## Installation
 
 ```bash
-/plugin marketplace add ThePickle31/Skills
+/plugin marketplace add ThePickle31/Pickle-Skills
 ```
 
 Or install individual skills:
 
 ```bash
-/plugin install ThePickle31/Skills/clawdbot-dev
+/plugin install ThePickle31/Pickle-Skills/clawdbot-dev
 ```
 
 ## Available Skills

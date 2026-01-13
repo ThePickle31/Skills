@@ -1,5 +1,5 @@
 {
-  "name": "skills",
+  "name": "Pickle-Skills",
   "owner": {
     "name": "ThePickle31"
   },
@@ -16,7 +16,7 @@
       "version": "1.0.0",
       "author": { "name": "ThePickle31" },
       "license": "MIT",
-      "repository": "ThePickle31/Skills",
+      "repository": "ThePickle31/Pickle-Skills",
       "keywords": ["clawdbot", "development", "bot", "discord", "telegram", "whatsapp", "ai-assistant"]
     }
   ]
