@@ -1,0 +1,23 @@
+{
+  "name": "skills",
+  "owner": {
+    "name": "ThePickle31"
+  },
+  "metadata": {
+    "description": "Custom Claude Code skills for development workflows",
+    "version": "1.0.0",
+    "pluginRoot": "."
+  },
+  "plugins": [
+    {
+      "name": "clawdbot-dev",
+      "source": "./clawdbot-dev",
+      "description": "Claude Code skill for Clawdbot development - multi-platform AI assistant",
+      "version": "1.0.0",
+      "author": { "name": "ThePickle31" },
+      "license": "MIT",
+      "repository": "ThePickle31/Skills",
+      "keywords": ["clawdbot", "development", "bot", "discord", "telegram", "whatsapp", "ai-assistant"]
+    }
+  ]
+}
