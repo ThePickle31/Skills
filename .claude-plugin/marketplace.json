@@ -18,6 +18,16 @@
       "license": "MIT",
       "repository": "ThePickle31/Pickle-Skills",
       "keywords": ["clawdbot", "development", "bot", "discord", "telegram", "whatsapp", "ai-assistant"]
+    },
+    {
+      "name": "discord-bot-dev",
+      "source": "./discord-bot-dev",
+      "description": "Comprehensive Discord bot development skill using Discord.js",
+      "version": "1.0.0",
+      "author": { "name": "ThePickle31" },
+      "license": "MIT",
+      "repository": "ThePickle31/Pickle-Skills",
+      "keywords": ["discord", "discord.js", "bot", "discord-bot", "slash-commands", "interactions", "buttons", "modals", "embeds", "voice", "discord-api"]
     }
   ]
 }
